@@ -8,26 +8,27 @@
 
 // }
 // console.log(getHighestIndex([5, 21, 12, 1, 8]));
-// function getHighestIndex(myArray) {
-//   let maxIndex = 0; 
+function getHighestIndex(myArray:Number[]=[]) {
   
-//   for (let i = 0; i < myArray.length; i++) {
-  
-//     for (let j = 0; j < myArray.length; j++) {
-//       console.log(
-//         `Comparing myArray[${i}] = ${myArray[i]} with myArray[${j}] = ${myArray[j]}`
-//       );
-  
-//       if (myArray[i] > myArray[maxIndex]) {
-//         maxIndex = i;
-//       }
-//     }
-//   }
+  let maxIndex:number=0;
 
   
-//   return maxIndex;
-// }
+  for (let i = 0; i < myArray.length; i++) {
+    for (let j = 0; j < myArray.length; j++) {
+      console.log(
+        `Comparing myArray[${i}] = ${myArray[i]} with myArray[${j}] = ${myArray[j]}`
+      );
+  
+      if (myArray[i] > myArray[maxIndex]) {
+        maxIndex = i;
+      }
+    }
+  }
 
-// console.log(getHighestIndex([5, 21, 12, 101, 8]));
+  
+  return maxIndex;
+}
 
-console.log("Hello MIT");
+console.log(getHighestIndex([5, 21, 12, 101, 8]));
+
+// console.log("Hello MIT");
