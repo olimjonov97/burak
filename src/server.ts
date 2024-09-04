@@ -9,3 +9,13 @@
 // Architectural pattern MVC(model view Controoller) DI(dependenci iinjection),,MVPmodel view presenter
 
 // Design Pattern Middle Ware, Decorator, 
+ 
+//En
+
+// import moment from "moment"; // const moment require("moment") in common js
+
+
+import dotenv from "dotenv";
+dotenv.config();
+console.log("PORT", process.env.PORT)
+console.log("Mongo", process.env.MONGO_URL)
