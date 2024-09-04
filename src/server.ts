@@ -15,6 +15,9 @@
 // import moment from "moment"; // const moment require("moment") in common js
 
 
+// Mongo Db 1 
+// Cluster => DATABASE (Reja & Burak) Collecion (plans) => Document(data birligi)
+
 import dotenv from "dotenv";
 dotenv.config();
 console.log("PORT", process.env.PORT)
