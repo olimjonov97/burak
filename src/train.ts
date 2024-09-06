@@ -32,13 +32,30 @@
 // console.log("Hello MIT");
 
 //TASK H
-function isPositive(value: number) {
-  return value > 0;
-}
-function getPositive(arr: number[]) {
-  return arr.filter(isPositive).join("");
-}
-console.log(getPositive([1, -4, 2]));
-console.log(getPositive)
+// function isPositive(value: number) {
+//   return value > 0;
+// }
+// function getPositive(arr: number[]) {
+//   return arr.filter(isPositive).join("");
+// }
+// console.log(getPositive([1, -4, 2]));
+// console.log(getPositive)
 // getPositive([-5, 10, -2, 3]);
 // getPositive([0, -1, -2, 4, 5])
+
+
+//TASK H-2
+ function getDigits(value: String) {
+   const arr=value.split('');
+   let sorted='';
+   for(let i=0; i<= arr.length;i++){
+    if(arr[i] >="0" && arr[i]<="9"){
+      sorted+=arr[i]
+    }
+   }
+   console.log(sorted)
+   
+  return console.log(arr);
+}
+getDigits("44fvfd5dfb8bb5vdd5");
+
