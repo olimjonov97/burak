@@ -1,5 +1,7 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
+import MemberService from "../models/Member.service";
+
 
 const restaurantController: T = {};
 
@@ -10,6 +12,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 };
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
+    
     res.send("Login Page");
   } catch (err) {
     console.log(" Error On Login");
