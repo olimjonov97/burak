@@ -1,12 +1,15 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../models/Member.service";
-
-
 const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
+    console.log("GoHome")
+    //LOGIC
+    //SERVICE MODEL
+    //...
+
     res.send("You are on HomePage");
   } catch (err) {console.log(" Error On GOHOME")}
 };
@@ -21,7 +24,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     res.send("Signup Page");
-  } catch (err) {
+  } catch (err) { 
     console.log(" Error On Signup");
   }
 };
