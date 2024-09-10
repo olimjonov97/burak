@@ -48,4 +48,4 @@ const memberSchema = new Schema(
   },
   { timestamps: true }
 );
-export default mongoose.model("Memeber", memberSchema);
+export default mongoose.model("Member", memberSchema);

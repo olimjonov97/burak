@@ -70,3 +70,9 @@ getDigits("44fvfd5dfb8bb5vdd5");
  -- ERROR handling
   
 */ 
+
+/* 
+Traditional API
+Rest API
+Graphical API
+*/
