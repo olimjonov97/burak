@@ -1,7 +1,7 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../models/Member.service";
-import { MemberInput } from "../libs/types/member";
+import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
 const restaurantController: T = {};
@@ -33,12 +33,18 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     console.log(" Error On Signup");
   }
 };
-restaurantController.processLogin = (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
     console.log("processLogin");
-    res.send("processLogin");
+    console.log("body=> ", req.body);
+    const input: LoginInput = req.body;
+    const memberService = new MemberService();
+   const result = await memberService.processLogin(input);
+
+    res.send(result);
   } catch (err) {
-    console.log(" Error On processLogin");
+    console.log(" Error On processLogin", err);
+    res.send(err)
   }
 };
 restaurantController.processSignUp = async (req: Request, res: Response) => {
@@ -48,13 +54,13 @@ restaurantController.processSignUp = async (req: Request, res: Response) => {
 
     const newMember: MemberInput = req.body;
     const memberService = new MemberService();
-    newMember.memberType = MemberType.RESTAURANT;  
+    newMember.memberType = MemberType.RESTAURANT;
 
     const result = await memberService.processSignUp(newMember);
     res.send(result);
   } catch (err) {
     console.log(" Error On processSignUp", err);
-    res.send(err)
+    res.send(err);
   }
 };
 

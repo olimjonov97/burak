@@ -13,6 +13,9 @@ export enum Message {
   NO_DATA_FOUND = "No data is found",
   CREATE_FAILED = "Create is failed",
   UPDATE_FAILED = "Update is failed",
+  NO_MEMBER_NICK="NO MEMBER WITH THAT MEMBER NICK",
+  USED_NICK_PHONE="YOU ARE INSERTING ALREADY USED NICK OR PHONE",
+  WRONG_PASSWORD="WRONG PASSWORD !",
 }
 class Errors extends Error {
   public code: HttpCode;
