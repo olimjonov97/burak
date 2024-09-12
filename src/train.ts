@@ -1,3 +1,21 @@
+/* 
+ Project Standards:
+
+ --Logging Standards by Morgan
+ -- Naming Standards 
+   ==>> CAMEL CASE >>  function, variable, method,  goHome
+   =>>  claass PASCAL  MemberService
+   folder =>> KEBAB  MORGAN_FORMAT
+   css =>  SNAKE CASE     
+ -- ERROR handling
+  
+*/ 
+
+/* 
+Traditional API
+Rest API
+Graphical API
+*/
 //  TASK G
 // function getHighestIndex(myArray){
 
@@ -44,35 +62,40 @@
 // getPositive([0, -1, -2, 4, 5])
 
 //TASK H-2
-function getDigits(value: String) {
-  const arr = value.split("");
-  let sorted = "";
-  for (let i = 0; i <= arr.length; i++) {
-    if (arr[i] >= "0" && arr[i] <= "9") {
-      sorted += arr[i];
+// function getDigits(value: String) {
+//   const arr = value.split("");
+//   let sorted = "";
+//   for (let i = 0; i <= arr.length; i++) {
+//     if (arr[i] >= "0" && arr[i] <= "9") {
+//       sorted += arr[i];
+//     }
+//   }
+//   console.log(sorted);
+
+//   return console.log(arr);
+// }
+// getDigits("44fvfd5dfb8bb5vdd5");
+function majorityElement(input: number[]): { maxNum: number; maxCount: number } {
+  let maxNum = 0;
+  let maxCount = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < input.length; j++) {
+      if (input[i] === input[j]) {
+        count++;
+      }
+    }
+
+    // Update maxNum and maxCount if the current number's count is greater
+    if (count > maxCount) {
+      maxCount = count;
+      maxNum = input[i];
     }
   }
-  console.log(sorted);
 
-  return console.log(arr);
+  return { maxNum, maxCount };
 }
-getDigits("44fvfd5dfb8bb5vdd5");
 
-/* 
- Project Standards:
-
- --Logging Standards by Morgan
- -- Naming Standards 
-   ==>> CAMEL CASE >>  function, variable, method,  goHome
-   =>>  claass PASCAL  MemberService
-   folder =>> KEBAB  MORGAN_FORMAT
-   css =>  SNAKE CASE     
- -- ERROR handling
-  
-*/ 
-
-/* 
-Traditional API
-Rest API
-Graphical API
-*/
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
