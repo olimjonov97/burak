@@ -14,21 +14,21 @@ restaurantController.goHome = (req: Request, res: Response) => {
     //...
     //resposnse types
     /* send | json |redirect| end |  render*/
-    res.send("You are on HomePage");
+    res.render("home");
   } catch (err) {
     console.log(" Error On GOHOME");
   }
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
-    res.send("Signup Page");
+     res.render("signup");
   } catch (err) {
     console.log(" Error On Signup");
   }
 };
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
-    res.send("Login Page");
+     res.render("login");
   } catch (err) {
     console.log(" Error On Login");
   }
