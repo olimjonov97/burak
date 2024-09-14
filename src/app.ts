@@ -18,8 +18,8 @@ app.set("views", path.join(__dirname, "views"));
 app.set("views engine", "ejs");
 
 // 4 Routers
-app.use("/admin", routerAdmin); //middleare design pattern
-app.use("/", router); //middleare design pattern
+app.use("/admin", routerAdmin); //middleare design pattern SSR
+app.use("/", router); //middleare design pattern SPA
 
 export default app;
 

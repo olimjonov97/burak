@@ -10,14 +10,20 @@
  -- ERROR handling
   
 */ 
+/*
+traditional FD > BSSR > EJS FrameWork orqali amalga oshiriladi (Admin)
+
+Modeern FD  SPA => Json Data => React Library (user's application)
+
+*/
 
 /* 
-Traditional API
+Traditional API 
 Rest API
 Graphical API
 */
 //  TASK G
-// function getHighestIndex(myArray){
+// function getHig hestIndex(myArray){
 
 //     let maxValue =Math.max(...myArray)
 //     console.log(maxValue)
