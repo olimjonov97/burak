@@ -11,7 +11,7 @@ memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("Signup");
     // console.log("body ", req.body);
-
+    //TODO TOKENS Authentication
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
 
@@ -29,6 +29,7 @@ memberController.login = async (req: Request, res: Response) => {
     console.log("body=> ", req.body);
     const input: LoginInput = req.body,
       result = await memberService.login(input);
+    //TODO TOKENS Authentication
 
     res.json({ member: result });
   } catch (err) {
