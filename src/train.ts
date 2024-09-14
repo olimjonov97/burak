@@ -9,7 +9,7 @@
    css =>  SNAKE CASE     
  -- ERROR handling
   
-*/ 
+*/
 /*
 traditional FD > BSSR > EJS FrameWork orqali amalga oshiriladi (Admin)
 
@@ -81,27 +81,47 @@ Graphical API
 //   return console.log(arr);
 // }
 // getDigits("44fvfd5dfb8bb5vdd5");
-function majorityElement(input: number[]): { maxNum: number; maxCount: number } {
-  let maxNum = 0;
-  let maxCount = 0;
+// function majorityElement(input: number[]): { maxNum: number; maxCount: number } {
+//   let maxNum = 0;
+//   let maxCount = 0;
 
-  for (let i = 0; i < input.length; i++) {
-    let count = 0;
+//   for (let i = 0; i < input.length; i++) {
+//     let count = 0;
 
-    for (let j = 0; j < input.length; j++) {
-      if (input[i] === input[j]) {
-        count++;
-      }
-    }
+//     for (let j = 0; j < input.length; j++) {
+//       if (input[i] === input[j]) {
+//         count++;
+//       }
+//     }
 
-    // Update maxNum and maxCount if the current number's count is greater
-    if (count > maxCount) {
-      maxCount = count;
-      maxNum = input[i];
+//     // Update maxNum and maxCount if the current number's count is greater
+//     if (count > maxCount) {
+//       maxCount = count;
+//       maxNum = input[i];
+//     }
+//   }
+
+//   return { maxNum, maxCount };
+// }
+
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
+
+// TASK J
+
+function findLongestWord(str: string) {
+  const words = str.split(/\W+/);
+  console.log(words);
+  let longestWord = "";
+
+  for (let i = 0; i < words.length; i++) {
+    console.log(words[i]);
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i];
     }
   }
 
-  return { maxNum, maxCount };
+  return longestWord;
 }
 
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
+// Funksiyani sinash
+console.log(findLongestWord("I came from Uzbekistan!")); 
