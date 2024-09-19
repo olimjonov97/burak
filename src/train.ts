@@ -16,6 +16,9 @@ traditional FD > BSSR > EJS FrameWork orqali amalga oshiriladi (Admin)
 Modeern FD  SPA => Json Data => React Library (user's application)
 
 */
+/*
+  
+*/
 
 /* 
 Traditional API 
@@ -108,20 +111,38 @@ Graphical API
 
 // TASK J
 
-function findLongestWord(str: string) {
-  const words = str.split(/\W+/);
-  console.log(words);
-  let longestWord = "";
+// function findLongestWord(str: string) {
+//   const words = str.split(/\W+/);
+//   console.log(words);
+//   let longestWord = "";
 
-  for (let i = 0; i < words.length; i++) {
-    console.log(words[i]);
-    if (longestWord.length < words[i].length) {
-      longestWord = words[i];
+//   for (let i = 0; i < words.length; i++) {
+//     console.log(words[i]);
+//     if (longestWord.length < words[i].length) {
+//       longestWord = words[i];
+//     }
+//   }
+
+//   return longestWord;
+// }
+
+// // Funksiyani sinash
+// console.log(findLongestWord("I came from Uzbekistan!")); 
+//TASK K
+function countVowels(input: string): number {
+    
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    let count = 0;
+
+    
+    for (let char of input) {
+        if (vowels.includes(char)) {
+            count++;
+        }
     }
-  }
 
-  return longestWord;
+    return count;
 }
 
-// Funksiyani sinash
-console.log(findLongestWord("I came from Uzbekistan!")); 
+// Misol
+console.log(countVowels("string")); // 1
