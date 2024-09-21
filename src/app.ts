@@ -40,6 +40,11 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(function(req,res,next){
+  const sessionInstance = req.session as T;
+  res.locals.member = sessionInstance.member //browser variable
+  next();
+})
 
 // 3-Views
 app.set("views", path.join(__dirname, "views"));

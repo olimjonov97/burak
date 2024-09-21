@@ -9,6 +9,7 @@ const productController: T = {};
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
+
     res.render("products");
   } catch (err) {
     console.log(" Error On getAllProducts", err);
@@ -25,7 +26,7 @@ productController.createNewProduct = async (req: Request, res: Response) => {
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
-productController.updateChosenProduct = async   (req: Request, res: Response) => {
+productController.updateChosenProduct = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenProduct");
   } catch (err) {
@@ -34,4 +35,5 @@ productController.updateChosenProduct = async   (req: Request, res: Response) =>
     else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
-export default productController; 
+
+export default productController;
