@@ -127,22 +127,30 @@ Graphical API
 // }
 
 // // Funksiyani sinash
-// console.log(findLongestWord("I came from Uzbekistan!")); 
+// console.log(findLongestWord("I came from Uzbekistan!"));
 //TASK K
-function countVowels(input: string): number {
-    
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-    let count = 0;
+// function countVowels(input: string): number {
 
-    
-    for (let char of input) {
-        if (vowels.includes(char)) {
-            count++;
-        }
-    }
+//     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//     let count = 0;
 
-    return count;
+//     for (let char of input) {
+//         if (vowels.includes(char)) {
+//             count++;
+//         }
+//     }
+
+//     return count;
+// }
+
+// // Misol
+// console.log(countVowels("string")); // 1
+//TASK L
+function reverseSentence(sentence: string): string {
+  return sentence
+    .split(" ")
+    .map((word) => word.split("").reverse().join(""))
+    .join(" ");
 }
 
-// Misol
-console.log(countVowels("string")); // 1
+console.log(reverseSentence("we like coding!"));
