@@ -15,7 +15,13 @@ class ProductService {
   }
   /*SPA */
   /*SSR */
-
+  public async getAllProducts(): Promise<Product[]> {
+    //string => obejct ID
+    const result = await this.productModel.find().exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    console.log("result", result);
+    return result;
+  }
   public async createNewProduct(input: ProductInput): Promise<Product> {
     try {
       return await this.productModel.create(input);
@@ -33,9 +39,9 @@ class ProductService {
     const result = await this.productModel
       .findOneAndUpdate({ _id: id }, input, { new: true })
       .exec();
-      if(!result) throw new Errors(HttpCode.NOT_MODIFIED,Message.UPDATE_FAILED);
-      console.log("result",result)
-      return result
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    console.log("result", result);
+    return result;
   }
 }
 export default ProductService;
