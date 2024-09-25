@@ -146,14 +146,29 @@ Graphical API
 // // Misol
 // console.log(countVowels("string")); // 1
 //TASK L
-function reverseSentence(sentence: string): string {
-  return sentence
-    .split(" ")
-    .map((word) => word.split("").reverse().join(""))
-    .join(" ");
+// function reverseSentence(sentence: string): string {
+//   return sentence
+//     .split(" ")
+//     .map((word) => word.split("").reverse().join(""))
+//     .join(" ");
+// }
+
+// console.log(reverseSentence("we like coding!"));
+
+//Task N
+
+function palindromCheck(str: string) {
+  const strArray = str.split('').join('');
+  console.log(strArray)
+  const reversedArr = strArray.split('').reverse().join('');
+  console.log(reversedArr)
+  if (strArray=== reversedArr) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+
+
 }
-
-console.log(reverseSentence("we like coding!"));
-
-
-
+palindromCheck("son");
+palindromCheck("dad");
