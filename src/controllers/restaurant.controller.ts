@@ -5,6 +5,7 @@ import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 
+const memberService = new MemberService();
 const restaurantController: T = {};
 
 restaurantController.goHome = (req: Request, res: Response) => {
@@ -45,20 +46,19 @@ restaurantController.processSignUp = async (
   try {
     const file = req.file;
     console.log("processSignUp");
-    console.log("File addrress", file);
+
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
     const newMember: MemberInput = req.body;
     newMember.memberImage = file?.path;
-    const memberService = new MemberService();
+
     newMember.memberType = MemberType.RESTAURANT;
-    const result = await memberService.processSignUp(newMember)
+    const result = await memberService.processSignUp(newMember);
 
     req.session.member = result;
 
     req.session.save(function () {
       res.redirect("/admin/product/all");
-
     });
   } catch (err) {
     console.log(" Error On processSignUp", err);
@@ -75,7 +75,7 @@ restaurantController.processLogin = async (
 ) => {
   try {
     console.log("processLogin");
-    console.log("body=> ", req.body);
+    // console.log("body=> ", req.body);
     const input: LoginInput = req.body;
     const memberService = new MemberService();
     const result = await memberService.processLogin(input);
@@ -105,6 +105,28 @@ restaurantController.logOut = async (req: AdminRequest, res: Response) => {
     res.redirect("/admin");
   }
 };
+restaurantController.getUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getUsers");
+    
+    const result = await memberService.getUsers();
+console.log("result", result);
+    res.render("users", { users: result });
+  } catch (err) {
+    console.log(" Error On getUsers",err);
+    res.redirect("/admin/login");
+  }
+};
+
+
+restaurantController.updateChosenUser = (req: Request, res: Response) => {
+  try {
+    res.render("updateChosenUser");
+  } catch (err) {
+    console.log(" Error On updateChosenUser");
+  }
+};
+
 
 restaurantController.checkAuthSession = async (
   req: AdminRequest,

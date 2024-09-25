@@ -15,15 +15,15 @@ class MemberService {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
-        try {
+    try {
       const result = await this.memberModel.create(input);
 
       result.memberPassword = "";
 
       return result.toJSON();
     } catch (err) {
-      console.log('ERROR, model: signup',err)
-      throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE );
+      console.log("ERROR, model: signup", err);
+      throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }
 
@@ -43,12 +43,12 @@ class MemberService {
       input.memberPassword,
       member.memberPassword
     );
-  
+
     // const isMatch = input.memberPassword === member.memberPassword;
 
-      console.log("isMatch", isMatch);
-  
-      if (!isMatch) {
+    // console.log("isMatch", isMatch);
+
+    if (!isMatch) {
       //try to do if els without !
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
@@ -60,12 +60,12 @@ class MemberService {
     const exist = await this.memberModel
       .findOne({ memberType: MemberType.RESTAURANT })
       .exec();
-    console.log(exist);
+    // console.log(exist);
     if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-    
+
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
-    
+
     try {
       const result = await this.memberModel.create(input);
       result.memberPassword = "";
@@ -89,12 +89,18 @@ class MemberService {
     );
     // const isMatch = input.memberPassword === member.memberPassword;
 
-  
-    console.log("isMatch", isMatch);
+    // console.log("isMatch", isMatch);
     if (!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
     return await this.memberModel.findById(member._id).exec();
+  }
+  public async getUsers(): Promise<Member[]> {
+    const result = await this.memberModel
+      .find({ memberType: MemberType.USER })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return result;
   }
 }
 

@@ -19,7 +19,7 @@ class ProductService {
     //string => obejct ID
     const result = await this.productModel.find().exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-    console.log("result", result);
+    // console.log("result", result);
     return result;
   }
   public async createNewProduct(input: ProductInput): Promise<Product> {
@@ -40,7 +40,7 @@ class ProductService {
       .findOneAndUpdate({ _id: id }, input, { new: true })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
-    console.log("result", result);
+    // console.log("result", result);
     return result;
   }
 }
