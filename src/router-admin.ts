@@ -29,7 +29,7 @@ routerAdmin.get(
 routerAdmin.post(
   "/product/create",
   restaurantController.verifyRestaurant,
-  makeUploader("products").array("productImages",5 ),
+  makeUploader("products").array("productImages", 5),
   productController.createNewProduct
 );
 routerAdmin.post(
@@ -40,7 +40,15 @@ routerAdmin.post(
 
 /* User*/
 
-routerAdmin.get('/user/all',restaurantController.verifyRestaurant,restaurantController.getUsers)
-
+routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers
+);
+routerAdmin.post(
+  "/user/edit",
+  restaurantController.verifyRestaurant,
+  restaurantController.updateChosenUser
+);
 
 export default routerAdmin;
