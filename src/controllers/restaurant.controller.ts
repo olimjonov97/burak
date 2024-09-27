@@ -11,6 +11,7 @@ const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("GoHome");
+    console.log(req.body, "Home page");
     //LOGIC
     //SERVICE MODEL
     //...
@@ -65,7 +66,7 @@ restaurantController.processSignUp = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}" );window.locaion.replace('admin/signup') </script>`
+      `<script> alert("${message}" ); window.location.replace('/admin/signup') </script>`
     );
   }
 };
@@ -75,7 +76,7 @@ restaurantController.processLogin = async (
 ) => {
   try {
     console.log("processLogin");
-    // console.log("body=> ", req.body);
+    console.log("body=> ", req.body);
     const input: LoginInput = req.body;
     const memberService = new MemberService();
     const result = await memberService.processLogin(input);
@@ -90,13 +91,14 @@ restaurantController.processLogin = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}" );window.locaion.replace('admin/login') </script>`
+      `<script> alert("${message}" ); window.location.replace('/admin/login') </script>`
     );
   }
 };
 restaurantController.logOut = async (req: AdminRequest, res: Response) => {
   try {
     console.log("LogOut");
+    // console.log("req.session", req.session);
     req.session.destroy(function () {
       res.redirect("/admin");
     });
@@ -125,11 +127,10 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
     const result = await memberService.updateChosenUser(req.body);
 
     res.status(HttpCode.OK).json({ data: result });
-    
   } catch (err) {
     console.log(" Error On updateChosenUser", err);
-     if (err instanceof Errors) res.status(err.code).json(err);
-     else res.status(Errors.standard.code).json(Errors.standard);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
 
