@@ -25,7 +25,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
-    console.log("getSign UP executed")
+    // console.log("getSign UP executed")
     res.render("signup");
   } catch (err) {
     console.log(" Error On Signup");
@@ -47,7 +47,7 @@ restaurantController.processSignUp = async (
 ) => {
   try {
     const file = req.file;
-    console.log("processSignUp executed");
+    // console.log("processSignUp executed");
 
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
@@ -83,7 +83,7 @@ restaurantController.processLogin = async (
     const result = await memberService.processLogin(input);
     // TODO SESSIONS Authentication
     req.session.member = result;
-
+ 
     req.session.save(function () {
       res.redirect("/admin/product/all");
     });
