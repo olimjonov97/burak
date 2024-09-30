@@ -25,6 +25,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
+    console.log("getSign UP executed")
     res.render("signup");
   } catch (err) {
     console.log(" Error On Signup");
@@ -46,7 +47,7 @@ restaurantController.processSignUp = async (
 ) => {
   try {
     const file = req.file;
-    console.log("processSignUp");
+    console.log("processSignUp executed");
 
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
