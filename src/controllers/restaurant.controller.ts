@@ -104,7 +104,7 @@ restaurantController.logOut = async (req: AdminRequest, res: Response) => {
       res.redirect("/admin");
     });
   } catch (err) {
-    console.log(" Error On Logout", err);
+    console.log(" Error On Logout", err);  
     res.redirect("/admin");
   }
 };
@@ -114,8 +114,8 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
 
     const result = await memberService.getUsers();
     res.render("users", { users: result });
-    console.log("result", result);
-    // res.render("users", { users: result });
+    // console.log("result", result); 
+    
   } catch (err) {
     console.log(" Error On getUsers", err);
     res.redirect("/admin/login");
