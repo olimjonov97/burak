@@ -157,18 +157,28 @@ Graphical API
 
 //Task N
 
-function palindromCheck(str: string) {
-  const strArray = str.split('').join('');
-  console.log(strArray)
-  const reversedArr = strArray.split('').reverse().join('');
-  console.log(reversedArr)
-  if (strArray=== reversedArr) {
-    console.log(true);
-  } else {
-    console.log(false);
-  }
+// function palindromCheck(str: string) {
+//   const strArray = str.split('').join('');
+//   console.log(strArray)
+//   const reversedArr = strArray.split('').reverse().join('');
+//   console.log(reversedArr)
+//   if (strArray=== reversedArr) {
+//     console.log(true);
+//   } else {
+//     console.log(false);
+//   }
 
 
+// }
+// palindromCheck("son");
+// palindromCheck("dad");
+
+
+//TASK P
+function objectToArray(obj: { [key: string]: any }): any[][] {
+ 
+  return Object.entries(obj);
 }
-palindromCheck("son");
-palindromCheck("dad");
+
+
+console.log(objectToArray({ a: 10, b: 20 }));
