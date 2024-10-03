@@ -10,9 +10,9 @@ $(function () {
         memberStatus: memberStatus,
       })
       .then((response) => {
-        console.log("response:", response);
+        // console.log("response:", response);
         const result = response.data;
-        console.log("result", result);
+        // console.log("result", result);
 
         if (result.data) {
           $(".member-status").blur();

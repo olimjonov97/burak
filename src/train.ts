@@ -175,10 +175,18 @@ Graphical API
 
 
 //TASK P
-function objectToArray(obj: { [key: string]: any }): any[][] {
+// function objectToArray(obj: { [key: string]: any }): any[][] {
  
-  return Object.entries(obj);
+//   return Object.entries(obj);
+// }
+
+   
+// console.log(objectToArray({ a: 10, b: 20 }));
+
+function hasProperty(obj: { [key: string]: any }, prop: string): boolean {
+
+    return obj.hasOwnProperty(prop);
 }
 
-
-console.log(objectToArray({ a: 10, b: 20 }));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
