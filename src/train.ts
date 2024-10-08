@@ -189,50 +189,66 @@ Graphical API
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
 //TASK R
 
-function calculate(expression: string): number {
-  // Matnni bo'sh joylardan ajratamiz
-  const parts = expression.split(" ");
-  // Ajratilgan qismlardan birinchi va uchinchi qismni sonlarga o'tkazamiz
-  const num1 = parseInt(parts[0], 10);
-  const operator = parts[1];
-  const num2 = parseInt(parts[2], 10);
+// function calculate(expression: string): number {
+//   // Matnni bo'sh joylardan ajratamiz
+//   const parts = expression.split(" ");
+//   // Ajratilgan qismlardan birinchi va uchinchi qismni sonlarga o'tkazamiz
+//   const num1 = parseInt(parts[0], 10);
+//   const operator = parts[1];
+//   const num2 = parseInt(parts[2], 10);
 
-  let result: number;
+//   let result: number;
   
-  // Operatorni tekshirib, amalni bajarish
-  switch (operator) {
-    case '+':
-      result = num1 + num2;
-      break;
-    case '-':
-      result = num1 - num2;
-      break;
-    case '*':
-      result = num1 * num2;
-      break;
-    case '/':
-      result = num1 / num2;
-      break;
-    default:
-      throw new Error("Invalid operator");
-  }
+//   // Operatorni tekshirib, amalni bajarish
+//   switch (operator) {
+//     case '+':
+//       result = num1 + num2;
+//       break;
+//     case '-':
+//       result = num1 - num2;
+//       break;
+//     case '*':
+//       result = num1 * num2;
+//       break;
+//     case '/':
+//       result = num1 / num2;
+//       break;
+//     default:
+//       throw new Error("Invalid operator");
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(calculate("1 + 3")); // 4
+// console.log(calculate("1 + 3")); // 4
 
 
-// function expression(arr:number[]) {
+// function expression(arr:[]){
 //   console.log(arr);
 //   for (let i = 0; i >= arr.length; i++) {
 //     console.log(arr[i]);
 //   }
 // }
-// function calculate(strParameter: any) {
+// function calculate(strParameter: any){
 //   const value = strParameter.split("");
 
 //   expression(value);
 // }
 
 // calculate("1+2");
+
+//TASK S
+
+function missingNumber(arr: number[]): number {
+  arr.sort((a, b) => a - b);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== i) {
+      return i;
+    }
+  }
+
+  return arr.length;
+}
+
+console.log(missingNumber([3, 0, 1]));
