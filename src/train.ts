@@ -239,16 +239,23 @@ Graphical API
 
 //TASK S
 
-function missingNumber(arr: number[]): number {
-  arr.sort((a, b) => a - b);
+// function missingNumber(arr: number[]): number {
+//   arr.sort((a, b) => a - b);
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== i) {
-      return i;
-    }
-  }
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== i) {
+//       return i;
+//     }
+//   }
 
-  return arr.length;
+//   return arr.length;
+// }
+
+// console.log(missingNumber([3, 0, 1]));
+/*TASK T*/
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+
+  return [...arr1, ...arr2].sort((a, b) => a - b);
 }
 
-console.log(missingNumber([3, 0, 1]));
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
