@@ -252,10 +252,26 @@ Graphical API
 // }
 
 // console.log(missingNumber([3, 0, 1]));
-/*TASK T*/
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+// /*TASK T*/
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
 
-  return [...arr1, ...arr2].sort((a, b) => a - b);
+//   return [...arr1, ...arr2].sort((a, b) => a - b);
+// }
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+//TASK U
+function sumOdds(n:number):number {
+  let count = 0;
+
+  for (let i = 0; i < n; i++) {
+   
+    if (i % 2 !== 0) {
+      count++;
+    }
+  }
+  return count; 
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+console.log(sumOdds(9)); 
+console.log(sumOdds(11));
