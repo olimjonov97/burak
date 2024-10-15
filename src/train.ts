@@ -261,17 +261,34 @@ Graphical API
 // console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 //TASK U
-function sumOdds(n:number):number {
-  let count = 0;
+// function sumOdds(n:number):number {
+//   let count = 0;
 
-  for (let i = 0; i < n; i++) {
+//   for (let i = 0; i < n; i++) {
    
-    if (i % 2 !== 0) {
-      count++;
+//     if (i % 2 !== 0) {
+//       count++;
+//     }
+//   }
+//   return count; 
+// }
+
+// console.log(sumOdds(9)); 
+// console.log(sumOdds(11));
+//TASK V
+function countChars(str: string): { [key: string]: number } {
+  const result: { [key: string]: number } = {}; // Natijani saqlaydigan object
+
+  for (let char of str) {
+    if (result[char]) {
+      result[char]++; 
+    } else {
+      result[char] = 1;
     }
   }
-  return count; 
+
+  return result; 
 }
 
-console.log(sumOdds(9)); 
-console.log(sumOdds(11));
+
+console.log(countChars("hello")); 
