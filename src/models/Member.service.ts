@@ -36,19 +36,19 @@ class MemberService {
   /*Login* */
   public async login(input: LoginInput): Promise<Member> {
     // TODO Consider memberstatus
-     const member = await this.memberModel
-       .findOne(
-         {
-           memberNick: input.memberNick,
-           memberStatus: { $ne: MemberStatus.DELETE },
-         },
-         { memberNick: 1, memberPassword: 1, memberStatus: 1 }
-       )
-       .exec();
-     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
-     else if (member.memberStatus === MemberStatus.BLOCK) {
-       throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
-     }
+    const member = await this.memberModel
+      .findOne(
+        {
+          memberNick: input.memberNick,
+          memberStatus: { $ne: MemberStatus.DELETE },
+        },
+        { memberNick: 1, memberPassword: 1, memberStatus: 1 }
+      )
+      .exec();
+    if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+    else if (member.memberStatus === MemberStatus.BLOCK) {
+      throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
+    }
     const isMatch = await bcrypt.compare(
       input.memberPassword,
       member.memberPassword
@@ -64,6 +64,13 @@ class MemberService {
     }
     return await this.memberModel.findById(member._id).lean().exec();
   }
+
+  public async getMemberDetail(member:Member):Promise<Member>{
+    const memberId=shapeIntoMongooseObjectId(member._id)
+    const result = await this.memberModel.findOne({_id:memberId,memberStatus:MemberStatus.ACTIVE}).exec()
+  if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+  return result
+  };
 
   /*SSR*/
   public async processSignUp(input: MemberInput): Promise<Member> {
@@ -115,7 +122,7 @@ class MemberService {
   public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
     const memberId = shapeIntoMongooseObjectId(input._id);
     const result = await this.memberModel
-      .findByIdAndUpdate({ _id: memberId },input,{new:true})
+      .findByIdAndUpdate({ _id: memberId }, input, { new: true })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
     return result;
