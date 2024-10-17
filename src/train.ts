@@ -276,19 +276,35 @@ Graphical API
 // console.log(sumOdds(9)); 
 // console.log(sumOdds(11));
 //TASK V
-function countChars(str: string): { [key: string]: number } {
-  const result: { [key: string]: number } = {}; // Natijani saqlaydigan object
+// function countChars(str: string): { [key: string]: number } {
+//   const result: { [key: string]: number } = {}; // Natijani saqlaydigan object
 
-  for (let char of str) {
-    if (result[char]) {
-      result[char]++; 
-    } else {
-      result[char] = 1;
-    }
+//   for (let char of str) {
+//     if (result[char]) {
+//       result[char]++; 
+//     } else {
+//       result[char] = 1;
+//     }
+//   }
+
+//   return result; 
+// }
+
+
+// console.log(countChars("hello")); 
+//TAsk w
+function chunkArray(arr: number[], size: number): number[][] {
+  const result: number[][] = [];
+  
+  for (let i = 0; i < arr.length; i += size) {
+    const chunk = arr.slice(i, i + size);
+    result.push(chunk);
   }
 
-  return result; 
+  return result;
 }
 
 
-console.log(countChars("hello")); 
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+
