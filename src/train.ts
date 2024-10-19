@@ -293,18 +293,46 @@ Graphical API
 
 // console.log(countChars("hello")); 
 //TAsk w
-function chunkArray(arr: number[], size: number): number[][] {
-  const result: number[][] = [];
+// function chunkArray(arr: number[], size: number): number[][] {
+//   const result: number[][] = [];
   
-  for (let i = 0; i < arr.length; i += size) {
-    const chunk = arr.slice(i, i + size);
-    result.push(chunk);
-  }
+//   for (let i = 0; i < arr.length; i += size) {
+//     const chunk = arr.slice(i, i + size);
+//     result.push(chunk);
+//   }
 
-  return result;
+//   return result;
+// }
+
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+
+function countOccurrences(obj: any, key: string): number {
+    let count = 0;
+
+    
+    for (const prop in obj) {
+      
+        if (prop === key) {
+            count++;
+        }
+       
+        if (typeof obj[prop] === 'object') {
+            count += countOccurrences(obj[prop], key);
+        }
+    }
+
+    return count;
 }
 
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+const myObj = {
+    model: 'Bugatti',
+    steer: {
+        model: 'HANKOOK',
+        size: 30
+    }
+};
 
-
+console.log(countOccurrences(myObj, 'model')); // 2
