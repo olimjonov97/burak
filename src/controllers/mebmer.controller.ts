@@ -90,6 +90,7 @@ memberController.getMemberDetail = async (
   try {
     console.log("getMemberDetail");
     const result = await memberService.getMemberDetail(req.member);
+    console.log(result)
     res.status(HttpCode.OK).json(result);
   } catch (err) {
     console.log(" Error On getMemberDetail", err);
@@ -118,6 +119,7 @@ memberController.getTopUsers = async (req: Request, res: Response) => {
   try {
     console.log("getTopUsers");
     const result = await memberService.getTopUsers();
+    console.log(result)
 
     res.status(HttpCode.OK).json(result);
   } catch (err) {
