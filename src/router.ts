@@ -26,15 +26,15 @@ router.post(
   memberController.updateMember
 );
 
-router.get(
-  "/member/top-users",memberController.getTopUsers
-
-);
-
+router.get("/member/top-users", memberController.getTopUsers);
 
 /*Product*/
-router.get("/product/all",productController.getProducts)
-router.get("/product/:id", memberController.retrieveAuth, productController.getProduct);
+router.get("/product/all", productController.getProducts);
+router.get(
+  "/product/:id",
+  memberController.retrieveAuth,
+  productController.getProduct
+);
 
 /*Order */
 router.post(
@@ -42,6 +42,16 @@ router.post(
   memberController.verifyAuth,
   orderController.createOrder
 );
+router.get(
+  "/order/all",
+  memberController.verifyAuth,
+  orderController.getMyOrders
+);
 
+router.post(
+  "/order/update",
+  memberController.verifyAuth,
+  orderController.updateOrder
+);
 
 export default router;

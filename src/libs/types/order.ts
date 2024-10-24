@@ -6,8 +6,8 @@ export interface OrderItem {
   _id: ObjectId;
   itemQuantity: number;
   itemPrice: number;
-  productId: ObjectId;
   orderId: ObjectId;
+  productid: ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -17,7 +17,7 @@ export interface Order {
   orderTotal: number;
   orderDelivery: number;
   orderStatus: OrderStatus;
-  memberId: ObjectId; 
+  memberId: ObjectId;
   createdAt: Date;
   updatedAt: Date;
   /* from aggregations */
@@ -27,8 +27,8 @@ export interface Order {
 
 export interface OrderItemInput {
   orderStatus: any;
-  itemPrice: number;
   itemQuantity: number;
+  itemPrice: number;
   productId: ObjectId;
   orderId?: ObjectId;
 }
