@@ -308,31 +308,44 @@ Graphical API
 // console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
 
-function countOccurrences(obj: any, key: string): number {
-    let count = 0;
+// function countOccurrences(obj: any, key: string): number {
+//     let count = 0;
 
     
-    for (const prop in obj) {
+//     for (const prop in obj) {
       
-        if (prop === key) {
-            count++;
-        }
+//         if (prop === key) {
+//             count++;
+//         }
        
-        if (typeof obj[prop] === 'object') {
-            count += countOccurrences(obj[prop], key);
-        }
-    }
+//         if (typeof obj[prop] === 'object') {
+//             count += countOccurrences(obj[prop], key);
+//         }
+//     }
 
-    return count;
+//     return count;
+// }
+
+
+// const myObj = {
+//     model: 'Bugatti',
+//     steer: {
+//         model: 'HANKOOK',
+//         size: 30
+//     }
+// };
+
+// console.log(countOccurrences(myObj, 'model')); // 2
+
+
+//TASK z 
+function sumEvens(numbers: number[]): number {
+
+    const Evens = numbers.filter((num) => num % 2 === 0)
+
+  return Evens.reduce((a, number) => a + number, 0); 
 }
 
-
-const myObj = {
-    model: 'Bugatti',
-    steer: {
-        model: 'HANKOOK',
-        size: 30
-    }
-};
-
-console.log(countOccurrences(myObj, 'model')); // 2
+// Misollar:
+console.log(sumEvens([1, 2, 3])); 
+console.log(sumEvens([1, 2, 3, 2]));
