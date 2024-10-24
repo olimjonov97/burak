@@ -6,7 +6,7 @@ const viewSchema = new Schema(
     viewGroup: {
       type: String,
       enum: ViewGroup,
-      required: true,
+      required: true, 
     },
 
     memberId: {
@@ -17,6 +17,7 @@ const viewSchema = new Schema(
 
     viewRefId: {
       type: Schema.Types.ObjectId,
+      required:true
     },
   },
   { timestamps: true }
